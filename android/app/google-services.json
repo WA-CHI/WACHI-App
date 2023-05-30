@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "980868777928",
+    "firebase_url": "https://wa-chi-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "wa-chi",
+    "storage_bucket": "wa-chi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980868777928:android:618ddf43bcf59b33e2e2fd",
+        "android_client_info": {
+          "package_name": "com.dwarsh.webrtcsample"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxKgkH7KeEPBHX6WD9Uz9B4LUC1CU7AFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980868777928:android:a919d57c049e86f7e2e2fd",
+        "android_client_info": {
+          "package_name": "com.wachi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxKgkH7KeEPBHX6WD9Uz9B4LUC1CU7AFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980868777928:android:8ffff48d4065cd1be2e2fd",
+        "android_client_info": {
+          "package_name": "com.example.wa_chi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxKgkH7KeEPBHX6WD9Uz9B4LUC1CU7AFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
