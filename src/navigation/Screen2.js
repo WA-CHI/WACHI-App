@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
   calendar: {
     marginTop:290,
     marginBottom:0,
+    marginLeft:30,
+    width:350,
   }
 });
 export default Screen2;
