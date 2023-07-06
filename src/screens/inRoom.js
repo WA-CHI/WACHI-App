@@ -50,8 +50,15 @@ export default function JoinScreen({ setScreen, screens, roomId }) {
   const [isMuted, setIsMuted] = useState(false);
 
   useEffect(() => {
-    // startLocalStream();
+    startLocalStream();
+    
   }, []);
+
+  useEffect(() => {
+    if (localStream) {
+      joinCall(roomId);
+    }
+  }, [localStream]);
 
   const startLocalStream = async () => {
 
@@ -77,6 +84,7 @@ export default function JoinScreen({ setScreen, screens, roomId }) {
     };
     const newStream = await mediaDevices.getUserMedia(constraints);
     setLocalStream(newStream);
+    
   };
 
   const joinCall = async id => {

@@ -14,7 +14,7 @@ export default function App() {
     JOIN: 'JOIN',
   }
 
-  const [screen, setScreen] = useState(screens.ROOM);
+  const [screen, setScreen] = useState(screens.JOIN);
   const [roomId, setRoomId] = useState('');
 
   let content;
@@ -32,7 +32,7 @@ export default function App() {
 
       //-> 고정 ID 작성
     case screens.JOIN:
-      content = <JoinScreen roomId={roomId} screens={screens} setScreen={setScreen} />
+      content = <JoinScreen roomId={'testRTC123'} screens={screens} setScreen={setScreen} />
       break;
 
     default:
