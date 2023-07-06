@@ -7,13 +7,6 @@ import { View,Image, Text,StyleSheet, Button,TextInput,Linking } from 'react-nat
 const Screen1 = () => {
   return (
     <View>
-      {/* 입장 ID */}
-      <View style={styles.inputContainer}>
-        <TextInput style={styles.input}
-          placeholder="연결 ID를 입력하세요" />
-          <Button color='black' title=" 연결 " />
-      </View>
-
       {/* 모니터링 화면 */}
       
       <View style={styles.container}>

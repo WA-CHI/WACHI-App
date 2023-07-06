@@ -1,8 +1,8 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-// import App from '../App'; -> webrtc
-import Screen1 from './Screen1';
+import App from '../App';
+// import Screen1 from './Screen1';
 import Screen2 from './Screen2';
 import Screen3 from './Screen3';
 const Tab = createBottomTabNavigator();
@@ -10,7 +10,7 @@ const Tab = createBottomTabNavigator();
 const MainTabNavigator = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Screen1"
+      initialRouteName="App"
       screenOptions={{
         title: 'WA-CHI',
         headerTintColor: 'white',
@@ -30,7 +30,7 @@ const MainTabNavigator = () => {
         tabBarActiveTintColor: 'white',     //활성화
       }}>
 
-      <Tab.Screen name="Screen1" component={Screen1}
+      <Tab.Screen name="App" component={App}
         options={{
           tabBarLabel: '홈',
           tabBarIcon: ({color, size}) => (
