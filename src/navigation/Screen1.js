@@ -1,24 +1,10 @@
+//Screen 1 : 홈 화면 ( 모니터링 및 부가기능)
 import React ,{ useState } from 'react';
 import { View,Image, Text,StyleSheet, Button,TextInput,Linking } from 'react-native';
 
 
 //홈 화면
 const Screen1 = () => {
-   //전화 바로가기
-   const handleCall = () => {
-    const phoneNumber = '114';
-    Linking.openURL(`tel:${phoneNumber}`).catch(error => {
-      // Handle the error here
-      console.error('Failed to initiate phone call:', error);
-    });
-  };
-  //문자 바로가기
-  const handleSMS = () => {
-    const phoneNumber = '114';
-    let smsContent = 'test.'
-    Linking.openURL(`sms:${phoneNumber}?body=${smsContent}`);
-  };
-
   return (
     <View>
       {/* 입장 ID */}
@@ -29,15 +15,17 @@ const Screen1 = () => {
       </View>
 
       {/* 모니터링 화면 */}
-      {/* 부가기능 버튼 */}
+      
       <View style={styles.container}>
       <Image source={require('../../assets/ic_home.png')}
               style={styles.remoteVideo} />
 
+      {/* 부가기능 버튼 */}
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%', paddingHorizontal: 50, paddingLeft:50 }}>
-        <Button   style={styles.btn} title="---112 전화---" onPress={handleCall} />
-        <Button  style={styles.btn} title="---112 문자---" onPress={handleSMS} />
+        <Button   style={styles.btn} title="---112 전화---"/>
+        <Button  style={styles.btn} title="---112 문자---" />
       </View>
+      
     </View>
     </View>
   );

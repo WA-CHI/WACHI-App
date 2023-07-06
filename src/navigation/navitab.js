@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+// import App from '../App'; -> webrtc
 import Screen1 from './Screen1';
 import Screen2 from './Screen2';
 import Screen3 from './Screen3';
@@ -30,7 +31,6 @@ const MainTabNavigator = () => {
       }}>
 
       <Tab.Screen name="Screen1" component={Screen1}
-      
         options={{
           tabBarLabel: '홈',
           tabBarIcon: ({color, size}) => (
