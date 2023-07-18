@@ -5,6 +5,8 @@ import App from '../App';
 // import Screen1 from './Screen1';
 import Screen2 from './Screen2';
 import Screen3 from './Screen3';
+//설정화면 추가
+import Screen4 from './Screen4';
 const Tab = createBottomTabNavigator();
 
 const MainTabNavigator = () => {
@@ -48,6 +50,12 @@ const MainTabNavigator = () => {
         tabBarLabel: '알림',
         tabBarIcon: ({color, size}) => (
           <Icon name="notifications" color={color} size={size} />
+        ),
+      }} />
+      <Tab.Screen name="Screen4" component={Screen4} options={{
+        tabBarLabel: '설정',
+        tabBarIcon: ({color, size}) => (
+          <Icon name="settings" color={color} size={size} />
         ),
       }} />
     </Tab.Navigator>
