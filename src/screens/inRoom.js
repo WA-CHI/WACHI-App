@@ -26,7 +26,7 @@ export default function JoinScreen({ setScreen, screens, roomId }) {
   //문자 바로가기
   const handleSMS = () => {
     const phoneNumber = '114';
-    let smsContent = 'test.'
+    let smsContent = '부산 남구 대연동 OO매장에서 도난이 발생하였습니다. 출동 바랍니다'
     Linking.openURL(`sms:${phoneNumber}?body=${smsContent}`);
   };
 
@@ -49,15 +49,18 @@ export default function JoinScreen({ setScreen, screens, roomId }) {
 
   const [isMuted, setIsMuted] = useState(false);
 
+  //어플 접속 시 수행
   useEffect(() => {
     startLocalStream();
-    
   }, []);
 
+  //로컬 스트림이 존재할 경우, 저장된 roomID로 webRTC 연결
   useEffect(() => {
     if (localStream) {
       joinCall(roomId);
     }
+    // localStream.getTracks().stop();
+    // toggleMute();
   }, [localStream]);
 
   const startLocalStream = async () => {
@@ -86,7 +89,6 @@ export default function JoinScreen({ setScreen, screens, roomId }) {
     setLocalStream(newStream);
     
   };
-
   const joinCall = async id => {
     const roomRef = await db.collection('rooms').doc(id);
     const roomSnapshot = await roomRef.get();
@@ -155,7 +157,7 @@ export default function JoinScreen({ setScreen, screens, roomId }) {
 
   return (
     <>
-      <Text style={styles.heading} >연결 ID : {roomId}</Text>
+      <Text style={styles.heading} >ID : {roomId}</Text>
 
       <View style={styles.callButtons} >
         <View styles={styles.buttonContainer} >
@@ -169,16 +171,39 @@ export default function JoinScreen({ setScreen, screens, roomId }) {
           {localStream && <RTCView style={styles.rtc} streamURL={localStream && localStream.toURL()} />}
         </View> */}
         <View style={styles.rtcview}>
+
+
+          <View style={{flex: 4, height: 200, flexDirection: 'row'}}>
           {remoteStream && <RTCView style={styles.rtc} streamURL={remoteStream && remoteStream.toURL()} />}
-          
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%', paddingHorizontal: 50, paddingLeft:50 }}>
-        <Button   style={styles.btn} title="---112 전화---" onPress={handleCall} />
-        <Button title="---112 문자---" 
-                onPress={handleSMS} 
-                />
+          </View>
+
+          <View style={{flex: 1, flexDirection: 'row'}}>
+          <View style={{flex: 1, height: 100, width:500,}}></View></View>
+
+          <View style={{flex: 1, flexDirection: 'row'}}>
+          <View style={{flex: 0.1, height: 150, width:500}}></View>
+          <View style={{flex: 0.5, height: 150, width:500}}>
+          <Button buttonStyle={styles.btn} title="112 전화" onPress={handleCall} />
+          <Text></Text><Text></Text>
+          <Button buttonStyle={styles.btn} title="단축번호 1" onPress= {()=>{Linking.openURL('tel:01011111111')} } />
+          </View>
+          <View style={{flex: 0.2, height: 150, width:500}}></View>
+          <View style={{flex: 0.5, height: 150}}>
+          <Button title="112 문자" onPress={handleSMS} />
+          <Text></Text><Text></Text>
+          <Button buttonStyle={styles.btn} title="단축번호 2" onPress= {()=>{Linking.openURL('tel:01022222222')} } />
+          </View>
+          <View style={{flex: 0.1, height: 150, width:500}}></View></View>
+
+
       </View>
+        
+        
         </View>
-      </View>
+      
+      
+          
+
 
     </>
   )
@@ -217,5 +242,9 @@ const styles = StyleSheet.create({
   buttonContainer: {
     margin: 5,
   },
+  btn:{
+    width: 700,
+    backgroundColor: 'black',
+  }
 
 });
