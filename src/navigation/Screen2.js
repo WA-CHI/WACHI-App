@@ -6,7 +6,6 @@ import { View, Text,StyleSheet } from 'react-native';
 //영상 조회 화면
 const Screen2 = () => {
   //날짜 선택
-  //+ 미래 날짜 선택 막기
   const [selectedDate, setSelectedDate] = useState(null);
   const markedDates = selectedDate ? { [selectedDate]: { selected: true } } : {};
 
