@@ -10,7 +10,15 @@ const Screen2 = () => {
   const markedDates = selectedDate ? { [selectedDate]: { selected: true } } : {};
 
   const handleDayPress = (date) => {
-    setSelectedDate(date.dateString);
+   // 현재 날짜와 비교하여 미래인 경우 선택하지 않음
+   const currentDate = new Date();
+   const selectedDateTime = new Date(date.timestamp);
+
+   if (selectedDateTime > currentDate) {
+     return;
+   }
+
+   setSelectedDate(date.dateString);
   };
 
   return (
