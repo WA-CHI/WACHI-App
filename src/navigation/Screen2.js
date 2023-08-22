@@ -11,14 +11,17 @@ const Screen2 = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const markedDates = selectedDate ? { [selectedDate]: { selected: true } } : {};
   const [data, setData] = useState('');
+  
   //파이어베이스 값 가져오기
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const snapshot = await db.collection('imgsrc').doc('img').get();
-        if (snapshot.exists) {
-          const documentData = snapshot.data();
-          setData(documentData.src); // Replace 'yourField' with the actual field name in your document
+        if (selectedDate) {
+          const snapshot = await db.collection('imgsrc').doc(selectedDate).get();
+          if (snapshot.exists) {
+            const documentData = snapshot.data();
+            setData(documentData.src); // Replace 'src' with the actual field name in your document
+          }
         }
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -26,13 +29,13 @@ const Screen2 = () => {
     };
 
     fetchData();
-  }, []);
+  }, [selectedDate]);
   
   const handleDayPress = (date) => {
-   // 현재 날짜와 비교하여 미래인 경우 선택하지 않음
    const currentDate = new Date();
    const selectedDateTime = new Date(date.timestamp);
 
+  // 현재 날짜와 비교하여 미래인 경우 선택하지 않음
    if (selectedDateTime > currentDate) {
      return;
    }
@@ -49,7 +52,7 @@ const Screen2 = () => {
       <Image
             source={require('C:/Users/hsj00/Desktop/WACHI/src/navigation/abc.jpg')}
           />
-      {selectedDate && <Text>조회: {selectedDate}</Text>}
+      {selectedDate && <Text>조회: {data}</Text>}
       <Calendar  style={styles.calendar} onDayPress={handleDayPress}
         markedDates={markedDates}
         theme={{
